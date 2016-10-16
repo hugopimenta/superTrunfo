@@ -1,0 +1,33 @@
+codigo;tipo;nome;cilindradas;potencia;rotacoes;velocidade;peso
+SP;Dragster;SX 6000 FG Turbo;1502;567;11000;335;212
+8B;Triciclos;Lehmann Goldwing GL;1520;100;5200;165;480
+5B;Cruiser;Moto Guzzi California;1064;95;8200;184;268
+4A;Dragster;High Performance CB2;1400;402;11500;293;224
+4B;Dragster;Kawasaki Z1000 RX;1480;342;11800;277;198
+3A;Turismo;Moto Guzzi v10 Centauro;992;95;8200;217;243
+8C;Triciclos;Mark-One;800;70;5400;160;395
+2B;Estradeiras;Moto Guzzi California;942;69;3600;180;305
+1B;Esportivas;Cagiva Gran Canyon 900;904;73;8000;175;208
+1D;Esportivas;Buell S3T Thunderbolt;1189;87;5900;205;232
+6C;Superesportivas;MV Augusta F4;749;126;12200;275;185
+7A;Enduro;Muz 660 Baghira;660;50;6500;155;164
+7D;Enduro;KTM LC4 620 E;609;50;7000;160;165
+1C;Esportivas;BMW K1200 RS;1171;130;8750;225;285
+1A;Suzuki GSX 600 F;750;92;10500;220;231
+3C;Turismo;Triumph Thunderbird Sport;885;78;8300;199;244
+2A;Estradeiras;Honda Gold Wing SE;1520;100;5200;184;387
+5A;Cruiser;BMW R 850 C;848;50;5250;155;256
+2C;Estradeiras;BMW K 1200 LT;1171;98;6750;197;378
+8A;Triciclos;Rassler Family-Trike;1584;110;4800;155;600
+8D;Tricilos;Boss Hoss V-8 Threewheeler;5679;355;5600;190;670
+3D;Turismo;Ducati M 900 Monster;904;74;7000;197;204
+2D;Estradeiras;Triumph Sprint Executive;885;95;9200;190;245
+6D;Superesportivas;Aprilia RSV Mille;998;128;9300;270;223
+7C;Enduro;Honda XRV 750 Africa Twin;742;60;7500;172;236
+6B;Superesportivas;Honda CBR 600 F;599;110;12500;230;211
+6A;Superesportivas;Bimota YB 11;1002;45;10000;270;194
+4D;Dragster;Hein Gericke FB1;1385;368;11400;284;187
+5D;Cruiser;Yamaha XVZ 1600 Wild Star;1600;63;4000;170;325
+5C;Cruiser;Harley Heritage Stringer;1338;56;5000;155;323
+7B;Enduro;BMW F650;652;48;6500;163;189
+3B;Turismo;BMW R1100 R;1085;80;6750;200;246
