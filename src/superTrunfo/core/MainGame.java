@@ -16,10 +16,11 @@ public class MainGame {
 	public static void main(String[] args) throws Exception {
 		List<Player> players = new ArrayList<>();
 		Scanner scanner = new Scanner(System.in);
+		GameInterface.printGameEntrance();
 		int numberOfPlayers = GameInterface.numberOfPlayers(scanner);
 
 		System.out.println("Jogador 1\nNome: ");
-		Player humanPlayer = new LocalPlayer();
+		LocalPlayer humanPlayer = new LocalPlayer();
 		String name = scanner.next();
 		humanPlayer.setName(name);
 		players.add(humanPlayer);
@@ -42,7 +43,7 @@ public class MainGame {
 		}
 		Round round = Round.getInstance();
 		while (players.size() > 1) {
-			Player roundWinner = round.newRound(players, scanner);
+			Player roundWinner = round.newRound(players, humanPlayer, scanner);
 			players.remove(roundWinner);
 			players.add(0, roundWinner);
 

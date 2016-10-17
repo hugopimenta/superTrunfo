@@ -18,6 +18,9 @@ public interface Player {
 	// Retorna a carta do topo da pilha do jogador 
 	public Card getCard();
 	
+	// Visualiza carta do topo
+	public Card peekCard();
+	
 	// Retorna o nome
 	public String getName();
 	
@@ -29,4 +32,6 @@ public interface Player {
 	
 	// Quantidade de cartas
 	public int getNumberOfCards();
+	
+	
 }

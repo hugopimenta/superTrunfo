@@ -40,6 +40,11 @@ public abstract class BasePlayer implements Player {
 	public Card getCard() {
 		return this.cards.pop();
 	}
+	
+	@Override
+	public Card peekCard() {
+		return this.cards.peek();
+	}
 
 	@Override
 	public String getName() {

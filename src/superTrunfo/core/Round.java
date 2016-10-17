@@ -30,17 +30,20 @@ public class Round {
 	}
 	
 	// Retorna o vencedor da rodada
-	public Player newRound(final List<Player> players, Scanner scanner) throws Exception {
+	public Player newRound(final List<Player> players, LocalPlayer humanPlayer, Scanner scanner) throws Exception {
 		GameInterface.printGameStatus(players);
 		if (players.size() == 1) {
 			return players.get(0);
 		}
 
+		if (humanPlayer.getNumberOfCards()>0) {
+			GameInterface.printCard(humanPlayer.peekCard());
+		}
+		
 		List<Player> roundDraw = new ArrayList<>();
 		Player winner = players.get(0);
 		Card winnerCard = winner.getCard();
-		if (winner instanceof LocalPlayer) 
-			GameInterface.printCard(winnerCard);
+
 		Card.Attribute attribute = players.get(0).chooseRoundAttribute(scanner, winnerCard);
 		GameInterface.printMove(winner, winnerCard, attribute);
 
@@ -48,8 +51,6 @@ public class Round {
 			if (opponent == winner)
 				continue;
 			Card opponentCard = opponent.getCard();
-			if (winner instanceof LocalPlayer) 
-				GameInterface.printCard(opponentCard);
 			GameInterface.printMove(opponent, opponentCard, attribute);
 			int result = winnerCard.compareCards(opponentCard, attribute);
 			
@@ -70,7 +71,7 @@ public class Round {
 		tableCards.addLast(winnerCard);
 
 		if (roundDraw.size() > 1) {
-			newRound(players, scanner);
+			newRound(players, humanPlayer, scanner);
 		}
 		
 		while(!tableCards.isEmpty()) {

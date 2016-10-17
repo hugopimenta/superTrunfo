@@ -1,5 +1,7 @@
 package superTrunfo.core;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.List;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
@@ -9,22 +11,35 @@ import superTrunfo.card.Card.Attribute;
 import superTrunfo.player.Player;
 
 public final class GameInterface {
-	private static final String SEPARATOR = "--------------------------------";
+	private static final String SEPARATOR = "-----------------------------------";
 	
 	public static void clearScreen() {
-		System.out.print("\n\n\n\n\n\n\n\n\n\n\n");
+		System.out.print("\n\n\n\n\n\n\n");
 		System.out.flush();
 	}
+	
+	public static void printGameEntrance() throws FileNotFoundException {
+		Scanner file = new Scanner(new File("motorcycle.txt"));
+		System.out.println(SEPARATOR + SEPARATOR);
+		System.out.println("------------------------- SUPER TRUNFO -------------------------");
+		System.out.println(SEPARATOR + SEPARATOR);
+		while(file.hasNextLine()) {
+			System.out.println(file.nextLine());
+		}
+		System.out.println(SEPARATOR + SEPARATOR);
+		file.close();
+	}
 
-	public static int numberOfPlayers(Scanner scan) throws InterruptedException {
+	public static int numberOfPlayers(Scanner scan) throws Exception {
 		int number;
 		do {
-			System.out.println("Quantos jogadores jogarão (2 a 4)?");
+			System.out.println("Quantos jogadores (2 a 4)?");
 			number = scan.nextInt();
 			if (number > 4 || number < 2) {
 				System.out.println("Valor inválido.");
 				TimeUnit.SECONDS.sleep(1);
 				GameInterface.clearScreen();
+				printGameEntrance();
 			} else
 				break;
 		} while (true);
