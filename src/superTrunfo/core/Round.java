@@ -30,7 +30,7 @@ public class Round {
 	}
 	
 	// Retorna o vencedor da rodada
-	public Player newRound(final List<Player> players, LocalPlayer humanPlayer, Scanner scanner) throws Exception {
+	public Player newRound(final List<Player> players, LocalPlayer humanPlayer, Scanner scanner, boolean drawRound) throws Exception {
 		GameInterface.printGameStatus(players);
 		if (players.size() == 1) {
 			return players.get(0);
@@ -71,14 +71,17 @@ public class Round {
 		tableCards.addLast(winnerCard);
 
 		if (roundDraw.size() > 1) {
-			newRound(players, humanPlayer, scanner);
+			GameInterface.printDrawMessage(roundDraw);
+			winner = newRound(players, humanPlayer, scanner, true);
 		}
 		
 		while(!tableCards.isEmpty()) {
 			winner.addCard(tableCards.pop());
 		}
-		GameInterface.printRoundWinner(winner);
-		TimeUnit.SECONDS.sleep(3);
+		if(!drawRound) {
+			GameInterface.printRoundWinner(winner);
+		}
+//		TimeUnit.SECONDS.sleep(3);
 		return winner;
 	}
 

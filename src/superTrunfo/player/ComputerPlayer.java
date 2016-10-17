@@ -17,14 +17,15 @@ public class ComputerPlayer extends BasePlayer implements Player {
 	public Attribute chooseRoundAttribute(Scanner scanner, Card card) {
 		// cilindradas;potencia;rotacoes;velocidade;peso
 		// Se for supertrunfo, usará.
-		// Escolhe entre os atributos aquele com maior porcentagem em relação a mediana da categoria.
+		// Escolhe entre os atributos aquele com maior porcentagem em relação a
+		// mediana da categoria.
 		if (card.getCodeNumber().equals("S"))
 			return Attribute.Code;
-		
+
 		List<Attribute> attributeList = Card.getAttributeList();
 		double percentage = 0;
 		Attribute attributeChoice = null;
-		for(Attribute att: attributeList) {
+		for (Attribute att : attributeList) {
 			if (getAttributePercentage(att) > percentage) {
 				percentage = getAttributePercentage(att);
 				attributeChoice = att;
@@ -38,19 +39,19 @@ public class ComputerPlayer extends BasePlayer implements Player {
 		double percentage;
 		switch (att) {
 		case CC:
-			percentage = cards.peek().getCc()/CCMEDIAN;
+			percentage = (double) cards.peek().getCc() / CCMEDIAN;
 			break;
 		case Power:
-			percentage = cards.peek().getPower()/POWERMEDIAN;
+			percentage = (double) cards.peek().getPower() / POWERMEDIAN;
 			break;
 		case RPM:
-			percentage = cards.peek().getRpm()/RPMMEDIAN;
+			percentage = (double) cards.peek().getRpm() / RPMMEDIAN;
 			break;
 		case Speed:
-			percentage = cards.peek().getSpeed()/SPEEDMEDIAN;
+			percentage = (double) cards.peek().getSpeed() / SPEEDMEDIAN;
 			break;
 		case Weight:
-			percentage = cards.peek().getWeight()/WEIGHTMEDIAN;
+			percentage = (double) cards.peek().getWeight() / WEIGHTMEDIAN;
 			break;
 		default:
 			percentage = 0;

@@ -2,6 +2,7 @@ package superTrunfo.core;
 
 import java.util.ArrayList;
 import java.util.Deque;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 
@@ -43,13 +44,14 @@ public class MainGame {
 		}
 		Round round = Round.getInstance();
 		while (players.size() > 1) {
-			Player roundWinner = round.newRound(players, humanPlayer, scanner);
+			Player roundWinner = round.newRound(players, humanPlayer, scanner, false);
 			players.remove(roundWinner);
 			players.add(0, roundWinner);
 
-			for (Player defeated : players) {
-				if (defeated.getNumberOfCards() == 0) {
-					players.remove(defeated);
+			Iterator<Player> itr = players.iterator();
+			while(itr.hasNext()) {
+				if (itr.next().getNumberOfCards() == 0) {
+					itr.remove();
 				}
 			}
 		}

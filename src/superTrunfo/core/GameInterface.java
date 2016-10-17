@@ -12,6 +12,7 @@ import superTrunfo.player.Player;
 
 public final class GameInterface {
 	private static final String SEPARATOR = "-----------------------------------";
+	private static final String DOUBLE_SEPARATOR = SEPARATOR + SEPARATOR;
 	
 	public static void clearScreen() {
 		System.out.print("\n\n\n\n\n\n\n");
@@ -20,13 +21,13 @@ public final class GameInterface {
 	
 	public static void printGameEntrance() throws FileNotFoundException {
 		Scanner file = new Scanner(new File("motorcycle.txt"));
-		System.out.println(SEPARATOR + SEPARATOR);
+		System.out.println(DOUBLE_SEPARATOR);
 		System.out.println("------------------------- SUPER TRUNFO -------------------------");
-		System.out.println(SEPARATOR + SEPARATOR);
+		System.out.println(DOUBLE_SEPARATOR);
 		while(file.hasNextLine()) {
 			System.out.println(file.nextLine());
 		}
-		System.out.println(SEPARATOR + SEPARATOR);
+		System.out.println(DOUBLE_SEPARATOR);
 		file.close();
 	}
 
@@ -76,11 +77,12 @@ public final class GameInterface {
 
 	public static void printRoundWinner(Player winner) {
 		System.out.println("O jogador " + winner.getName() + " venceu a rodada!");
+		System.out.println(DOUBLE_SEPARATOR);
 		
 	}
 	
 	public static void printGameStatus(List<Player> players) {
-		System.out.println(SEPARATOR);
+		System.out.println(DOUBLE_SEPARATOR);
 		for(Player player: players) {
 			System.out.println(player.getName() + " - Possui " + player.getNumberOfCards() + " cartas.");
 		}
@@ -103,6 +105,15 @@ public final class GameInterface {
 	
 	static void printGameWinner(Player winner) {
 		System.out.println("O jogador " + winner.getName() + " venceu o jogo!");
+	}
+
+	public static void printDrawMessage(List<Player> roundDraw) {
+		for(Player player: roundDraw) {
+			System.out.print(player.getName() + ", ");
+		}
+		System.out.println("empataram! Nova rodada de desempate:");
+		System.out.println(SEPARATOR);
+		
 	}
 
 }
