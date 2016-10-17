@@ -3,6 +3,7 @@ package superTrunfo.core;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.List;
+import java.util.Random;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
@@ -19,16 +20,28 @@ public final class GameInterface {
 		System.out.flush();
 	}
 	
-	public static void printGameEntrance() throws FileNotFoundException {
-		Scanner file = new Scanner(new File("motorcycle.txt"));
+	// @param motorcycle - 1 ou 2
+	public static void printGameEntrance(int motorcycle) {
 		System.out.println(DOUBLE_SEPARATOR);
-		System.out.println("------------------------- SUPER TRUNFO -------------------------");
+		System.out.println("---------------------------- SUPER TRUNFO ----------------------------");
 		System.out.println(DOUBLE_SEPARATOR);
-		while(file.hasNextLine()) {
-			System.out.println(file.nextLine());
+		printMotorcycle(new Random().nextInt(3) + 1);
+	}
+
+	private static void printMotorcycle(int motorcycle) {
+		Scanner file = null;
+		try {
+			file = new Scanner(new File("motorcycle" + motorcycle + ".txt"));
+			while(file.hasNextLine()) {
+				System.out.println(file.nextLine());
+			}
+			System.out.println(DOUBLE_SEPARATOR);
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} finally {
+			file.close();
 		}
-		System.out.println(DOUBLE_SEPARATOR);
-		file.close();
+
 	}
 
 	public static int numberOfPlayers(Scanner scan) throws Exception {
@@ -40,7 +53,7 @@ public final class GameInterface {
 				System.out.println("Valor inválido.");
 				TimeUnit.SECONDS.sleep(1);
 				GameInterface.clearScreen();
-				printGameEntrance();
+				printGameEntrance(1);
 			} else
 				break;
 		} while (true);
@@ -104,7 +117,10 @@ public final class GameInterface {
 	}
 	
 	static void printGameWinner(Player winner) {
+		printMotorcycle(5);
+		System.out.println(DOUBLE_SEPARATOR);
 		System.out.println("O jogador " + winner.getName() + " venceu o jogo!");
+		System.out.println(DOUBLE_SEPARATOR);
 	}
 
 	public static void printDrawMessage(List<Player> roundDraw) {
@@ -113,6 +129,13 @@ public final class GameInterface {
 		}
 		System.out.println("empataram! Nova rodada de desempate:");
 		System.out.println(SEPARATOR);
+		
+	}
+
+	public static void printPlayerOut(Player player) {
+		printMotorcycle(6);
+		System.out.println(player.getName() + " foi eliminado!!");
+		System.out.println(DOUBLE_SEPARATOR);
 		
 	}
 

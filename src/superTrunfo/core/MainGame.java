@@ -17,12 +17,13 @@ public class MainGame {
 	public static void main(String[] args) throws Exception {
 		List<Player> players = new ArrayList<>();
 		Scanner scanner = new Scanner(System.in);
-		GameInterface.printGameEntrance();
+		GameInterface.printGameEntrance(1);
 		int numberOfPlayers = GameInterface.numberOfPlayers(scanner);
 
-		System.out.println("Jogador 1\nNome: ");
+		System.out.println("Qual é o seu nome? ");
 		LocalPlayer humanPlayer = new LocalPlayer();
-		String name = scanner.next();
+		scanner.nextLine();
+		String name = scanner.nextLine();
 		humanPlayer.setName(name);
 		players.add(humanPlayer);
 
@@ -37,7 +38,7 @@ public class MainGame {
 				Card card = gameCards.pop();
 				player.addCard(card);
 			}
-			if (numberOfPlayers == 3) {
+			if (gameCards.size() % numberOfPlayers != 0) {
 				if (!gameCards.isEmpty())
 					player.addCard(gameCards.pop());
 			}
@@ -50,7 +51,9 @@ public class MainGame {
 
 			Iterator<Player> itr = players.iterator();
 			while(itr.hasNext()) {
-				if (itr.next().getNumberOfCards() == 0) {
+				Player player = itr.next();
+				if (player.getNumberOfCards() == 0) {
+					GameInterface.printPlayerOut(player);
 					itr.remove();
 				}
 			}
