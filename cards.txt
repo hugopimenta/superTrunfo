@@ -1,4 +1,3 @@
-codigo;tipo;nome;cilindradas;potencia;rotacoes;velocidade;peso
 SP;Dragster;SX 6000 FG Turbo;1502;567;11000;335;212
 8B;Triciclos;Lehmann Goldwing GL;1520;100;5200;165;480
 5B;Cruiser;Moto Guzzi California;1064;95;8200;184;268
@@ -13,7 +12,7 @@ SP;Dragster;SX 6000 FG Turbo;1502;567;11000;335;212
 7A;Enduro;Muz 660 Baghira;660;50;6500;155;164
 7D;Enduro;KTM LC4 620 E;609;50;7000;160;165
 1C;Esportivas;BMW K1200 RS;1171;130;8750;225;285
-1A;Suzuki GSX 600 F;750;92;10500;220;231
+1A;Suzuki; GSX 600 F;750;92;10500;220;231
 3C;Turismo;Triumph Thunderbird Sport;885;78;8300;199;244
 2A;Estradeiras;Honda Gold Wing SE;1520;100;5200;184;387
 5A;Cruiser;BMW R 850 C;848;50;5250;155;256

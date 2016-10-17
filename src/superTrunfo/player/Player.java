@@ -1,5 +1,7 @@
 package superTrunfo.player;
 
+import java.util.Scanner;
+
 import superTrunfo.card.Card;
 
 /**
@@ -8,7 +10,7 @@ import superTrunfo.card.Card;
  */
 public interface Player {
 	// Escolhe qual será o atributo da rodada
-	public Card.Attribute chooseRoundAttribute();
+	public Card.Attribute chooseRoundAttribute(Scanner scanner, Card card);
 	
 	// Retorna o valor do atributo da rodada
 	public Object value(Card.Attribute attribute);
@@ -16,8 +18,15 @@ public interface Player {
 	// Retorna a carta do topo da pilha do jogador 
 	public Card getCard();
 	
+	// Retorna o nome
 	public String getName();
 	
+	// Seta o nome
 	public void setName(String name);
 	
+	// Adiciona uma carta
+	public void addCard(Card card);
+	
+	// Quantidade de cartas
+	public int getNumberOfCards();
 }

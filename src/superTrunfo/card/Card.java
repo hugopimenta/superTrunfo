@@ -1,5 +1,8 @@
 package superTrunfo.card;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Card {
 
 	public enum Attribute {
@@ -126,5 +129,19 @@ public class Card {
 			break;
 		}
 		return 0;
+	}
+	
+	public static List<Attribute> getAttributeList() {
+		List<Attribute> list = new ArrayList<>();
+		list.add(Attribute.CC);
+		list.add(Attribute.Power);
+		list.add(Attribute.RPM);
+		list.add(Attribute.Speed);
+		list.add(Attribute.Weight);
+		return list;
+	}
+
+	public String getCode() {
+		return this.code;
 	}
 }
