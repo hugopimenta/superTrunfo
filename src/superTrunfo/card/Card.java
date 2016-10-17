@@ -84,53 +84,45 @@ public class Card {
 
 	// Compara a carta vencedora. 1 se vence, -1 se perde, 0 caso empate
 	public int compareCards(Card opponentCard, Attribute att) {
+		int thisValue = 0;
+		int opponentValue = 0;
 		switch (att) {
 		case CC:
-			if (this.cc > opponentCard.getCc()) {
-				return 1;
-			} else if (this.cc < opponentCard.getCc()) {
-				return -1;
-			}
-			return 0;
+			thisValue = this.cc;
+			opponentValue = opponentCard.getCc();
+			break;
+		case Power:
+			thisValue = this.power;
+			opponentValue = opponentCard.getPower();
+			break;
+		case RPM:
+			thisValue = this.rpm;
+			opponentValue = opponentCard.getRpm();
+			break;
+		case Speed:
+			thisValue = this.speed;
+			opponentValue = opponentCard.getSpeed();
+			break;
+		case Weight:
+			thisValue = this.weight;
+			opponentValue = opponentCard.getWeight();
+			break;
 		case Code:
 			if (opponentCard.getCodeNumber().equals("1")) {
 				return -1;
 			}
 			return 1;
-		case Power:
-			if (this.power > opponentCard.getPower()) {
-				return 1;
-			} else if (this.power < opponentCard.getPower()){
-				return -1;
-			}
-			return 0;
-		case RPM:
-			if (this.rpm > opponentCard.getRpm()) {
-				return 1;
-			} else if (this.rpm < opponentCard.getRpm()) {
-				return -1;
-			}
-			return 0;
-		case Speed:
-			if (this.speed > opponentCard.getSpeed()) {
-				return 1;
-			} else if (this.speed < opponentCard.getSpeed()) {
-				return -1;
-			}
-			return 0;
-		case Weight:
-			if (this.weight > opponentCard.getWeight()) {
-				return 1;
-			} else if (this.weight < opponentCard.getWeight()) {
-				return -1;
-			}
-			return 0;
 		default:
 			break;
 		}
+		if (thisValue > opponentValue) {
+			return 1;
+		} else if (thisValue < opponentValue) {
+			return -1;
+		}
 		return 0;
 	}
-	
+
 	public static List<Attribute> getAttributeList() {
 		List<Attribute> list = new ArrayList<>();
 		list.add(Attribute.CC);
