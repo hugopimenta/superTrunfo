@@ -1,5 +1,7 @@
 package superTrunfo.card;
 
+import superTrunfo.card.Card;;
+
 /**
  * Classe para gerar cartas do jogo. 
  *

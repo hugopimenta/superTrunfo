@@ -81,7 +81,7 @@ public class Round {
 		if(!drawRound) {
 			GameInterface.printRoundWinner(winner);
 		}
-//		TimeUnit.SECONDS.sleep(3);
+		TimeUnit.SECONDS.sleep(2);
 		return winner;
 	}
 
