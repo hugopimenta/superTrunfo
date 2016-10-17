@@ -111,7 +111,7 @@ public final class GameInterface {
 		System.out.println("3) Rotações: " + card.getRpm());
 		System.out.println("4) Velocidade: " + card.getSpeed());
 		System.out.println("5) Peso: " + card.getWeight());
-		if(card.getCodeNumber()=="S")
+		if(card.getCodeNumber().equals("S"))
 			System.out.println("6) SuperTrunfo");
 		System.out.println(SEPARATOR);
 	}

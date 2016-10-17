@@ -4,7 +4,6 @@ import java.util.Scanner;
 
 import superTrunfo.card.Card;
 import superTrunfo.card.Card.Attribute;
-import superTrunfo.core.GameInterface;
 
 public class LocalPlayer extends BasePlayer implements Player {
 
@@ -30,15 +29,13 @@ public class LocalPlayer extends BasePlayer implements Player {
 			option = Attribute.Weight;
 			break;
 		case 6:
-			if (card.equals("S")) {
+			if (card.getCodeNumber().equals("S")) {
 				option = Attribute.Code;
 				break;
 			}
 		default:
-			System.out.println("Opção inválida. Aperte 'enter' para prosseguir.");
-			scanner.next();
-			GameInterface.clearScreen();
-			chooseRoundAttribute(scanner, card);
+			System.out.println("Opção inválida.");
+			return chooseRoundAttribute(scanner, card);
 		}
 		return option;
 	}	

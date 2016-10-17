@@ -19,7 +19,7 @@ public class Card {
 	private Integer weight;
 
 	public String getCodeNumber() {
-		return code.substring(0, 0);
+		return code.substring(0, 1);
 	}
 
 	public void setCode(String code) {
